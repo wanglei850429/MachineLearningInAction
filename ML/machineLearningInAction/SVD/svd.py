@@ -65,7 +65,6 @@ def svdEst(dataMat,user,simMeas,item):
     n = dataMat.shape[1]
     simTotal = 0.0; ratSimTotal = 0.0
     u,sigma,vt = np.linalg.svd(dataMat)
-    #sigmaX平方和大于总平方和的90%，X=4
     sigma4 = np.mat(np.eye(4)*sigma[:4])
     xformedItems = dataMat.T*u[:,:4]*sigma4.I
     for j in range(n):
